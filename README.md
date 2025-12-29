@@ -199,13 +199,27 @@ Remember:
 firstName is a React state variable, not an HTML id or name.
 id and name belong to the input element, while firstName belongs to React state.
 
+-------------------------------------------------------
 
+Why files[0]?
+Most forms allow only ONE file upload (like resume).
 
+e.target.files[0]
+✔ Gets the first (and only) selected file
+✔ Returns a File object, not a string
 
+Easy way to remember:
 
+Text input → value
+File input → files[0]
 
+files[0] is used because file inputs return a list of selected files, and we need the actual File object (not a string path) to upload or process it.
 
+---------------------------------------
 
+selected={selectedOption === ""} is NOT needed in React because the <select> element is already controlled by value={selectedOption}.
+
+-----------------------------------------------------
 
 
 
