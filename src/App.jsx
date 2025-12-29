@@ -63,7 +63,15 @@ function App() {
           <br />
 
         <label>Gender*</label>
+        <input type='radio' id="male" name="gender" 
+        value="male"
+        checked={gender==="male"}
+        onChange={(e)=>setGender(e.target.value)}
+        />
+        Male
         
+
+
 
 
         </form>
