@@ -221,6 +221,21 @@ selected={selectedOption === ""} is NOT needed in React because the <select> ele
 
 -----------------------------------------------------
 
+Push Code to Github:
+
+git init
+git add .
+git status (optional)
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/sandeepcodes31/submission-form.git
+git push -u origin main
+
+For Future Updates, Whenever you make changes:
+
+git add .
+git commit -m "Updated form validation"
+git push
 
 
 

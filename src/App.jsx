@@ -163,6 +163,16 @@ function App() {
               <option value="6">MongoDB</option>
             </optgroup>
           </select>
+          <label>About</label>
+          <textarea>
+            id="about"
+            name="about"
+            rows="10"
+            cols="30"
+            onChange={(e)=>setAbout(e.target.value)}
+            placeholder="Describe about yourself"
+            required
+          </textarea>
         </form>
       </fieldset>
     </div>
