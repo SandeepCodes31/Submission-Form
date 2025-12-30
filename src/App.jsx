@@ -14,6 +14,7 @@ function App() {
   const [resume, setResume] = useState("");
   const [url, setUrl] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [about, setAbout] = useState("");
 
   return (
     <div className="App">
@@ -163,16 +164,24 @@ function App() {
               <option value="6">MongoDB</option>
             </optgroup>
           </select>
+          <br />
           <label>About</label>
-          <textarea>
+          <textarea
             id="about"
             name="about"
             rows="10"
             cols="30"
-            onChange={(e)=>setAbout(e.target.value)}
+            onChange={(e) => setAbout(e.target.value)}
             placeholder="Describe about yourself"
             required
-          </textarea>
+          ></textarea>
+          <br />
+          <button type="reset" value="reset" onClick={() => handleReset()}>
+            Reset
+          </button>
+          <button type="submit" value="submit" onClick={(e) => handleSubmit(e)}>
+            Submit
+          </button>
         </form>
       </fieldset>
     </div>
