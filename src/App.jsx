@@ -31,6 +31,18 @@ function App() {
             about
         );
   }
+  const handleReset = ()=> {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setContact("");
+    setGender("male");
+    setSubject("english");
+    setResume("");
+    setUrl("");
+    setSelectedOption("");
+    setAbout("");
+  };
 
   return (
     <div className="App">
@@ -205,3 +217,4 @@ function App() {
 }
 
 export default App;
+
