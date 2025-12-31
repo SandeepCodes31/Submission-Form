@@ -15,3 +15,9 @@ body {
     margin: auto;
     margin-top: 20px;
 }
+
+h1 {
+    font-size:xx-large;
+    text-align: center;
+    color: #38843b;
+}
