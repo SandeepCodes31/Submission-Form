@@ -36,6 +36,11 @@ input{
     font-size: 12px;
 }
 
+input[type=radio],
+input[type=checkbox]{
+    display: inline;
+    width:10%;
+}
 
 
 
