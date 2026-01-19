@@ -42,9 +42,32 @@ input[type=checkbox]{
     width:10%;
 }
 
+select {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 
+label {
+    font-size: 15px;
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
 
-
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px ;
+}
 
 
 
