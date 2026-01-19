@@ -67,6 +67,12 @@ button {
     padding: 15px;
     border-radius: 10px;
     margin: 15px ;
+    border:none;
+    color:white;
+    cursor: pointer;
+    background-color: #4caf50;
+    width:40%;
+    font-size: 20px ;
 }
 
 
