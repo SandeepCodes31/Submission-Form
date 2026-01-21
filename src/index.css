@@ -77,6 +77,6 @@ textarea {
   resize: none;
   width: 98%;
   min-height: 100px;
-
+  max-height: 150px;
 }
 
