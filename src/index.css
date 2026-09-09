@@ -69,8 +69,28 @@ button {
   color: white;
   cursor: pointer;
   background-color: #4caf50;
+  /* background-color: #00897B; */
   width: 40%;
   font-size: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #00695C;
+}
+
+/* button[type="submit"] {
+    background-color: #00897B;
+    color: white;
+    border: none;
+    padding: 12px 55px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+} */
+
+button[type="submit"]:hover {
+    background-color: #00695C;
 }
 
 textarea {
