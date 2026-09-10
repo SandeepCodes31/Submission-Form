@@ -15,12 +15,15 @@ function App() {
   const [url, setUrl] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [about, setAbout] = useState("");
+const [isSubmitting, setIsSubmitting] = useState(false);
 
 
 
-  
+
 const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsSubmitting(true);
 
     const data = {
         firstName: firstname,
@@ -49,6 +52,9 @@ const handleSubmit = async (e) => {
 
         console.log("Request sent!");
 
+        // Small delay so user can see the animation
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         alert("Form submitted successfully!");
 
         handleReset();
@@ -56,8 +62,51 @@ const handleSubmit = async (e) => {
     } catch (error) {
         console.error("Submission error:", error);
         alert("Something went wrong!");
+
+    } finally {
+        setIsSubmitting(false);
     }
 };
+  
+// const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const data = {
+//         firstName: firstname,
+//         lastName: lastname,
+//         email: email,
+//         contact: contact,
+//         gender: gender,
+//         subjects: subject,
+//         resume: resume ? resume.name : "",
+//         url: url,
+//         choice: selectedOption,
+//         about: about
+//     };
+
+//     console.log("Sending data:", data);
+
+//     try {
+//         await fetch(SCRIPT_URL, {
+//             method: "POST",
+//             mode: "no-cors",
+//             headers: {
+//                 "Content-Type": "text/plain;charset=utf-8"
+//             },
+//             body: JSON.stringify(data)
+//         });
+
+//         console.log("Request sent!");
+
+//         alert("Form submitted successfully!");
+
+//         handleReset();
+
+//     } catch (error) {
+//         console.error("Submission error:", error);
+//         alert("Something went wrong!");
+//     }
+// };
 
 
 
@@ -237,15 +286,34 @@ const handleSubmit = async (e) => {
           {/* <button type="reset" value="reset" onClick={() => handleReset()}>
             Reset
           </button> */}
-
+{/* 
           <button type="button" onClick={handleReset}>
+    Reset
+</button> */}
+
+
+<button type="button" onClick={handleReset} className="form-btn">
     Reset
 </button>
           {/* <button type="submit" value="submit" onClick={(e) => handleSubmit(e)}>
             Submit
           </button> */}
 
-          <button type="submit"> Submit </button>
+          {/* <button type="submit"> Submit </button> */}
+          <button 
+    type="submit" 
+    disabled={isSubmitting}
+    className={isSubmitting ? "submit-btn submitting" : "submit-btn"}
+>
+    {isSubmitting ? (
+        <>
+            <span className="loader"></span>
+            Submitting...
+        </>
+    ) : (
+        "Submit"
+    )}
+</button>
         </form>
       </fieldset>
     </div>
