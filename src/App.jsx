@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import { use } from "react";
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQkkjYJ5hgmnhikeMLS9Nc8lSHpRGTBvGCZ4ck_qOG7ldppB-DzkktQLIkHzLMoNVnEg/exec";
+
+const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
 
 function App() {
   const [firstname, setFirstName] = useState("");
