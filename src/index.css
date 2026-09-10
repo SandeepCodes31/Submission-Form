@@ -142,7 +142,10 @@ font-size: 20px;
 cursor: pointer;
 transition: all 0.3s ease;
 }
-
+.form-btn:hover {
+background-color: #00695C;
+transform: translateY(-2px);
+}
 
 
 /* .submit-btn {
