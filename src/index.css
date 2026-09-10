@@ -129,7 +129,19 @@ textarea {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.form-btn {
+width: 40%;
+height: 67px;
+padding: 0;
+margin: 15px;
+border: none;
+border-radius: 10px;
+background: #4caf50;
+color: white;
+font-size: 20px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
 
 
 
