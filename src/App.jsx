@@ -1,8 +1,8 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { use } from "react";
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQkkjYJ5hgmnhikeMLS9Nc8lSHpRGTBvGCZ4ck_qOG7ldppB-DzkktQLIkHzLMoNVnEg/exec";
 
 function App() {
   const [firstname, setFirstName] = useState("");
@@ -16,21 +16,51 @@ function App() {
   const [selectedOption, setSelectedOption] = useState("");
   const [about, setAbout] = useState("");
 
-  const handleSubmit = (e)=>{
+
+
+  
+const handleSubmit = async (e) => {
     e.preventDefault();
-     console.log(
-            firstname,
-            lastname,
-            email,
-            contact,
-            gender,
-            selectedOption,
-            subject,
-            resume,
-            url,
-            about
-        );
-  }
+
+    const data = {
+        firstName: firstname,
+        lastName: lastname,
+        email: email,
+        contact: contact,
+        gender: gender,
+        subjects: subject,
+        resume: resume ? resume.name : "",
+        url: url,
+        choice: selectedOption,
+        about: about
+    };
+
+    console.log("Sending data:", data);
+
+    try {
+        await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data)
+        });
+
+        console.log("Request sent!");
+
+        alert("Form submitted successfully!");
+
+        handleReset();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Something went wrong!");
+    }
+};
+
+
+
   const handleReset = ()=> {
     setFirstName("");
     setLastName("");
@@ -48,7 +78,7 @@ function App() {
     <div className="App">
       <h1>Submission Form</h1>
       <fieldset>
-        <form>
+       <form onSubmit={handleSubmit}>
           <label>First Name*</label>
           <input
             type="text"
@@ -204,12 +234,18 @@ function App() {
             required
           ></textarea>
           <br />
-          <button type="reset" value="reset" onClick={() => handleReset()}>
+          {/* <button type="reset" value="reset" onClick={() => handleReset()}>
             Reset
-          </button>
-          <button type="submit" value="submit" onClick={(e) => handleSubmit(e)}>
+          </button> */}
+
+          <button type="button" onClick={handleReset}>
+    Reset
+</button>
+          {/* <button type="submit" value="submit" onClick={(e) => handleSubmit(e)}>
             Submit
-          </button>
+          </button> */}
+
+          <button type="submit"> Submit </button>
         </form>
       </fieldset>
     </div>
